@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pengajuan_app/core/router/app_router.dart';
 import 'package:pengajuan_app/core/theme/app_theme.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'core/features/admin/presentation/pages/bloc/admin_bloc.dart';
+import 'core/features/auth/presentation/bloc/auth_bloc.dart';
+import 'core/features/citizen/presentation/bloc/citizen_bloc.dart';
 
-  //await di.init();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -17,15 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        // BlocProvider<AuthBloc>(
-        //   create: (_) => di.sl<AuthBloc>(),
-        // ),
-        // BlocProvider<CitizenBloc>(
-        //   create: (_) => di.sl<CitizenBloc>(),
-        // ),
-        // BlocProvider<AdminBloc>(
-        //   create: (_) => di.sl<AdminBloc>(),
-        // ),
+        BlocProvider<AuthBloc>(
+          create: (_) => AuthBloc(),
+        ),
       ],
       child: MaterialApp.router(
         title: 'Aplikasi Pengajuan',

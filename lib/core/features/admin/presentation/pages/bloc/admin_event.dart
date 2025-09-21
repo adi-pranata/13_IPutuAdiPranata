@@ -20,7 +20,6 @@ class UpdateRequestStatusEvent extends AdminEvent {
     this.rejectionReason,
   });
 
-  @override
   List<Object?> get props => [requestId, status, adminNotes, rejectionReason];
 }
 
