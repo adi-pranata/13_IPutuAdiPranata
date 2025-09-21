@@ -6,6 +6,7 @@ import 'package:pengajuan_app/core/theme/app_theme.dart';
 import 'core/features/admin/presentation/pages/bloc/admin_bloc.dart';
 import 'core/features/auth/presentation/bloc/auth_bloc.dart';
 import 'core/features/citizen/presentation/bloc/citizen_bloc.dart';
+import 'core/injection/injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(
           create: (_) => AuthBloc(),
+        ),
+        BlocProvider<CitizenBloc>(
+          create: (_) => CitizenBloc(
+              registerCitizen: sl(),
+              getCitizenRequests: sl(),
+              submitServiceRequest: sl()),
         ),
       ],
       child: MaterialApp.router(
