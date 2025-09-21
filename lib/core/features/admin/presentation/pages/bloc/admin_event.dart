@@ -2,7 +2,7 @@ part of 'admin_bloc.dart';
 
 abstract class AdminEvent extends Equatable {
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class LoadAllRequests extends AdminEvent {}
@@ -20,6 +20,7 @@ class UpdateRequestStatusEvent extends AdminEvent {
     this.rejectionReason,
   });
 
+  @override
   List<Object?> get props => [requestId, status, adminNotes, rejectionReason];
 }
 
@@ -29,5 +30,5 @@ class LoadRequestDetails extends AdminEvent {
   LoadRequestDetails({required this.requestId});
 
   @override
-  List<Object> get props => [requestId];
+  List<Object?> get props => [requestId];
 }

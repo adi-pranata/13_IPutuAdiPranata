@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
 import 'package:pengajuan_app/core/features/citizen/presentation/pages/citizen_registration_page.dart';
 import 'package:pengajuan_app/core/features/home/presentation/pages/home_page.dart';
+
+import '../features/admin/presentation/pages/admin_registration_page.dart';
 
 class AppRouter {
   static GoRouter get router => GoRouter(
@@ -27,23 +28,11 @@ class AppRouter {
           //   name: 'service-request',
           //   builder: (context, state) => const ServiceRequestPage(),
           // ),
-          // GoRoute(
-          //   path: '/admin-login',
-          //   name: 'admin-login',
-          //   builder: (context, state) => const AdminLoginPage(),
-          // ),
-          // GoRoute(
-          //   path: '/admin-dashboard',
-          //   name: 'admin-dashboard',
-          //   builder: (context, state) => const AdminDashboardPage(),
-          // ),
-          // GoRoute(
-          //   path: '/verification/:requestId',
-          //   name: 'verification',
-          //   builder: (context, state) => VerificationPage(
-          //     requestId: state.pathParameters['requestId']!,
-          //   ),
-          // ),
+          GoRoute(
+            path: '/admin-login',
+            name: 'admin-login',
+            builder: (context, state) => const AdminLoginPage(),
+          ),
         ],
       );
 }
